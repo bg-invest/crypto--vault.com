@@ -1,4 +1,4 @@
-// LOGIN
+// LOGIN FORM
 const form = document.getElementById("loginForm");
 
 if (form) {
@@ -20,7 +20,7 @@ if (form) {
   });
 }
 
-// PROTECT DASHBOARD
+// PROTECT DASHBOARD from access without login
 if (window.location.pathname.includes("dashboard.html")) {
   if (localStorage.getItem("isLoggedIn") !== "true") {
     window.location.href = "index.html";
@@ -33,7 +33,8 @@ function logout() {
   window.location.href = "index.html";
 }
 
-// btc price and chart
+
+// btc price and chart api
 const btcPriceElement = document.getElementById("btc-price");
 const priceChartCanvas = document.getElementById("priceChart");
 let btcChart;
@@ -60,6 +61,7 @@ async function getBTCPrice() {
   }
 }
 
+//GET BTC CHART DATA
 async function getBTCChartData() {
   try {
     const res = await fetch(
@@ -143,6 +145,7 @@ async function getBTCChartData() {
   }
 }
 
+//REFRESH DATA
 async function refreshData() {
   await getBTCPrice();
   await getBTCChartData();
