@@ -151,6 +151,9 @@ async function refreshData() {
   await getBTCChartData();
 }
 
-setInterval(getBTCPrice, 5000);
+setInterval(getBTCPrice, 5 * 60 * 1000);
 setInterval(getBTCChartData, 5 * 60 * 1000);
 refreshData();
+// setInterval(getBTCPrice, 5000);
+// setInterval(getBTCChartData, 5 * 60 * 1000);
+// refreshData();
